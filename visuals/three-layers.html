@@ -81,22 +81,22 @@
 
   <!-- Inputs -->
   <div class="inputs">
+    <div class="input-card community">
+      <div class="input-icon">📱</div>
+      <div class="input-title">Community smartphones</div>
+      <div class="input-desc">Volunteers photograph habitat, count species, draw planting bed extents with AR, log fauna. Three channels: photos, manual classification, free text. iPhone LiDAR for structure.</div>
+      <div class="input-stat">Primary signal · 143 assets · 6 volunteers</div>
+    </div>
     <div class="input-card satellite">
       <div class="input-icon">🛰</div>
-      <div class="input-title">Satellite</div>
-      <div class="input-desc">Sentinel-2 NDVI & land surface temperature at 10m resolution. Auto-flags degradation across all sites simultaneously.</div>
-      <div class="input-stat">Covers every BNG site, every 5 days</div>
-    </div>
-    <div class="input-card community">
-      <div class="input-icon">👁</div>
-      <div class="input-title">Community ground-truth</div>
-      <div class="input-desc">Trained volunteers submit structured habitat condition assessments. Photos, species ID, health scoring.</div>
-      <div class="input-stat">143 assets · 6 volunteers · weeks not months</div>
+      <div class="input-title">Satellite gap-fill</div>
+      <div class="input-desc">Sentinel-2 NDVI every 5 days. Fills temporal gaps between volunteer visits. Auto-flags sites where vegetation signal is declining.</div>
+      <div class="input-stat">Background monitoring between visits</div>
     </div>
     <div class="input-card os">
       <div class="input-icon">🗺</div>
-      <div class="input-title">Ordnance Survey baselines</div>
-      <div class="input-desc">MasterMap boundaries, Enhanced Land Cover (UKHAB) habitat types, AddressBase for BNG obligation linking.</div>
+      <div class="input-title">OS spatial framework</div>
+      <div class="input-desc">NGD Sites polygon for every functional site. Enhanced Land Cover (UKHAB) for habitat types. Sightings binned to site polygons.</div>
       <div class="input-stat">Authoritative framework for all measurements</div>
     </div>
   </div>
@@ -141,8 +141,8 @@
 <div class="callout-bar">
   <div class="callout-icon">💡</div>
   <div class="callout-text">
-    <strong>No other BNG tool fuses all three layers.</strong>
-    Verna manages paperwork (no satellite, no condition data). BNGAI has satellite but no ground-truth. Linckia needs professional ecologists at £1,200+/user. Only BNG Monitor combines citizen science + satellite + OS into automated habitat intelligence.
+    <strong>No other BNG tool has community ground-truth.</strong>
+    Verna manages paperwork (no condition data). BNGAI has satellite but no ground-truth. Linckia needs professional ecologists at £1,200+/user. Only BNG Monitor turns every smartphone into a sensor — community observations provide the high-quality evidence, satellite fills the gaps, OS provides the framework.
   </div>
 </div>
 

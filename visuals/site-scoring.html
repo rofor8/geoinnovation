@@ -10,7 +10,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Inter', system-ui, sans-serif; background: #111; color: #fff; min-height: 100vh; overflow: hidden; }
 
-  .layout { display: grid; grid-template-columns: 1fr 340px; height: 100vh; }
+  .layout { display: grid; grid-template-columns: 1fr 360px; height: 100vh; }
 
   /* Map area */
   .map-area { position: relative; background: #1a1e23; overflow: hidden; }
@@ -27,16 +27,24 @@
   .pill.green { background: rgba(76,175,80,0.15); color: #4caf50; }
   .pill.amber { background: rgba(255,167,38,0.15); color: #ffa726; }
   .pill.red { background: rgba(239,83,80,0.15); color: #ef5350; }
+  .pill.grey { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.35); }
 
   /* Legend bar */
-  .legend-bar { position: absolute; bottom: 20px; left: 20px; background: rgba(17,17,17,0.9); backdrop-filter: blur(12px); border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; gap: 6px; border: 1px solid rgba(255,255,255,0.06); z-index: 10; }
-  .legend-gradient { width: 180px; height: 10px; border-radius: 5px; background: linear-gradient(90deg, #ef5350, #ffa726, #ffee58, #66bb6a, #2e7d32); }
+  .legend-bar { position: absolute; bottom: 20px; left: 20px; background: rgba(17,17,17,0.9); backdrop-filter: blur(12px); border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.06); z-index: 10; }
+  .legend-gradient { width: 140px; height: 10px; border-radius: 5px; background: linear-gradient(90deg, #ef5350, #ffa726, #ffee58, #66bb6a, #2e7d32); }
   .legend-label { font-size: 9px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 1px; }
+  .legend-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.1); }
+  .legend-flag { display: flex; align-items: center; gap: 4px; font-size: 9px; color: rgba(255,255,255,0.35); }
 
   /* BNG badge on map */
   .bng-badge { position: absolute; background: rgba(17,17,17,0.85); border: 1.5px solid #ffa726; border-radius: 6px; padding: 3px 8px; font-size: 9px; font-weight: 700; color: #ffa726; z-index: 5; }
   .bng-badge.green-b { border-color: #4caf50; color: #4caf50; }
   .bng-badge.red-b { border-color: #ef5350; color: #ef5350; }
+
+  /* Flag badges on map */
+  .flag-badge { position: absolute; background: rgba(17,17,17,0.85); border-radius: 6px; padding: 3px 8px; font-size: 9px; font-weight: 600; z-index: 5; display: flex; align-items: center; gap: 4px; }
+  .flag-badge.undoc { border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.4); }
+  .flag-badge.outdated { border: 1px solid rgba(255,167,38,0.3); color: #ffa726; }
 
   /* Side panel */
   .panel { background: #111; border-left: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; overflow-y: auto; }
@@ -49,38 +57,51 @@
 
   /* Score ring */
   .score-section { padding: 24px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .score-ring { width: 120px; height: 120px; margin: 0 auto 12px; position: relative; }
+  .score-ring { width: 110px; height: 110px; margin: 0 auto 12px; position: relative; }
   .score-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
   .score-ring circle { fill: none; stroke-width: 8; }
   .score-ring .bg { stroke: rgba(255,255,255,0.06); }
   .score-ring .fg { stroke: #ffa726; stroke-linecap: round; stroke-dasharray: 339.292; stroke-dashoffset: 203; transition: stroke-dashoffset 1s; }
-  .score-num { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 32px; font-weight: 900; color: #ffa726; }
+  .score-num { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 30px; font-weight: 900; color: #ffa726; }
   .score-label { font-size: 11px; color: rgba(255,255,255,0.4); }
   .score-status { display: inline-block; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 8px; margin-top: 8px; background: rgba(255,167,38,0.12); color: #ffa726; }
 
+  /* Sightings section */
+  .sightings { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .sightings-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .sightings-count { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .sighting-card { display: flex; gap: 10px; padding: 10px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 10px; margin-bottom: 8px; }
+  .sighting-thumb { width: 48px; height: 48px; border-radius: 8px; flex-shrink: 0; object-fit: cover; }
+  .sighting-info { flex: 1; min-width: 0; }
+  .sighting-species { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.8); }
+  .sighting-meta { font-size: 10px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+  .sighting-type { display: inline-block; font-size: 9px; font-weight: 600; padding: 2px 6px; border-radius: 4px; margin-top: 4px; background: rgba(76,175,80,0.15); color: #4caf50; }
+
   /* Breakdown */
-  .breakdown { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .breakdown-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
-  .metric { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-  .metric-label { flex: 1; font-size: 12px; color: rgba(255,255,255,0.6); }
-  .metric-bar-bg { width: 100px; height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+  .breakdown { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .breakdown-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.3); margin-bottom: 12px; }
+  .metric { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .metric-label { flex: 1; font-size: 11px; color: rgba(255,255,255,0.6); }
+  .metric-bar-bg { width: 90px; height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
   .metric-bar { height: 100%; border-radius: 3px; }
-  .metric-val { font-size: 11px; font-weight: 700; width: 28px; text-align: right; }
+  .metric-val { font-size: 10px; font-weight: 700; width: 28px; text-align: right; }
+  .metric-source { font-size: 8px; color: rgba(255,255,255,0.2); text-transform: uppercase; letter-spacing: 0.5px; }
 
   /* Data sources */
-  .sources { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .source-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .sources { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .source-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
   .source-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-  .source-name { font-size: 12px; color: rgba(255,255,255,0.5); flex: 1; }
+  .source-name { font-size: 11px; color: rgba(255,255,255,0.5); flex: 1; }
   .source-age { font-size: 10px; color: rgba(255,255,255,0.25); }
+  .source-primary { font-size: 8px; font-weight: 700; color: #4caf50; text-transform: uppercase; letter-spacing: 0.5px; }
 
   /* HMMP section */
-  .hmmp { padding: 20px; }
+  .hmmp { padding: 16px 20px; }
   .hmmp-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.3); margin-bottom: 12px; }
-  .hmmp-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .hmmp-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
   .hmmp-item:last-child { border-bottom: none; }
-  .hmmp-label { font-size: 12px; color: rgba(255,255,255,0.5); }
-  .hmmp-value { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.8); }
+  .hmmp-label { font-size: 11px; color: rgba(255,255,255,0.5); }
+  .hmmp-value { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.8); }
   .hmmp-value.warn { color: #ffa726; }
   .hmmp-value.ok { color: #4caf50; }
 </style>
@@ -94,11 +115,12 @@
 
     <div class="top-bar">
       <div class="logo">BNG MONITOR</div>
-      <div class="search">Bristol City Council — 312 sites scored</div>
+      <div class="search">Bristol City Council — 312 sites scored · 184 undocumented</div>
       <div class="summary-pills">
-        <div class="pill green">247 Green</div>
-        <div class="pill amber">52 Amber</div>
-        <div class="pill red">13 Red</div>
+        <div class="pill green">198 Green</div>
+        <div class="pill amber">42 Amber</div>
+        <div class="pill red">9 Red</div>
+        <div class="pill grey">184 Undoc</div>
       </div>
     </div>
 
@@ -122,7 +144,11 @@
       <polygon points="20,20 170,20 170,90 20,90" fill="#2e7d32" opacity="0.8" stroke="#4caf50" stroke-width="1"/>
       <polygon points="20,100 170,100 170,188 20,188" fill="#66bb6a" opacity="0.7" stroke="#4caf50" stroke-width="1"/>
       <polygon points="192,20 260,20 260,120 192,120" fill="#4caf50" opacity="0.7" stroke="#66bb6a" stroke-width="1"/>
-      <polygon points="270,20 388,20 388,100 270,100" fill="#ffa726" opacity="0.7" stroke="#ffb74d" stroke-width="1.5"/>
+
+      <!-- Undocumented site (grey) -->
+      <polygon points="270,20 388,20 388,100 270,100" fill="#444" opacity="0.3" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="329" y="65" fill="rgba(255,255,255,0.2)" font-size="9" text-anchor="middle" font-family="Inter, system-ui">?</text>
+
       <polygon points="270,110 388,110 388,188 270,188" fill="#2e7d32" opacity="0.8" stroke="#4caf50" stroke-width="1"/>
       <polygon points="192,130 260,130 260,188 192,188" fill="#66bb6a" opacity="0.6" stroke="#81c784" stroke-width="1"/>
 
@@ -130,40 +156,58 @@
       <polygon points="412,20 608,20 608,188 412,188" fill="#ffa726" opacity="0.35" stroke="#ffa726" stroke-width="2.5">
         <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
       </polygon>
-      <text x="510" y="110" fill="#ffa726" font-size="11" font-weight="700" text-anchor="middle" font-family="Inter, system-ui">Temple Quarter Block C</text>
-      <text x="510" y="128" fill="rgba(255,255,255,0.3)" font-size="9" text-anchor="middle" font-family="Inter, system-ui">BNG OBLIGATED</text>
+      <text x="510" y="100" fill="#ffa726" font-size="11" font-weight="700" text-anchor="middle" font-family="Inter, system-ui">Temple Quarter Block C</text>
+      <text x="510" y="116" fill="rgba(255,255,255,0.3)" font-size="9" text-anchor="middle" font-family="Inter, system-ui">BNG OBLIGATED · 7 sightings</text>
+
+      <!-- Inner sighting polygons visible within selected site -->
+      <polygon points="425,35 485,35 485,75 425,75" fill="none" stroke="#ffa726" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+      <text x="455" y="59" fill="rgba(255,167,38,0.5)" font-size="7" text-anchor="middle" font-family="Inter, system-ui">planting bed</text>
+      <polygon points="520,40 595,40 595,90 520,90" fill="none" stroke="#4caf50" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+      <text x="558" y="69" fill="rgba(76,175,80,0.5)" font-size="7" text-anchor="middle" font-family="Inter, system-ui">hedgerow</text>
 
       <polygon points="632,20 788,20 788,110 632,110" fill="#2e7d32" opacity="0.8" stroke="#4caf50" stroke-width="1"/>
       <polygon points="632,120 720,120 720,188 632,188" fill="#4caf50" opacity="0.7" stroke="#66bb6a" stroke-width="1"/>
       <polygon points="730,120 788,120 788,188 730,188" fill="#66bb6a" opacity="0.6" stroke="#81c784" stroke-width="1"/>
       <polygon points="812,20 990,20 990,188 812,188" fill="#ef5350" opacity="0.5" stroke="#ef5350" stroke-width="2"/>
-      <text x="901" y="110" fill="#ef5350" font-size="10" font-weight="700" text-anchor="middle" font-family="Inter, system-ui">Bedminster Retail</text>
+      <text x="901" y="100" fill="#ef5350" font-size="10" font-weight="700" text-anchor="middle" font-family="Inter, system-ui">Bedminster Retail</text>
+      <text x="901" y="115" fill="rgba(255,255,255,0.2)" font-size="8" text-anchor="middle" font-family="Inter, system-ui">⚠ needs attention</text>
 
       <!-- Row 2 — middle sites -->
       <polygon points="20,212 100,212 100,300 20,300" fill="#2e7d32" opacity="0.7" stroke="#4caf50" stroke-width="1"/>
-      <polygon points="20,310 100,310 100,408 20,408" fill="#4caf50" opacity="0.7" stroke="#66bb6a" stroke-width="1"/>
-      <polygon points="110,212 170,212 170,408 110,408" fill="#ffee58" opacity="0.5" stroke="#fdd835" stroke-width="1"/>
+
+      <!-- Outdated site -->
+      <polygon points="20,310 100,310 100,408 20,408" fill="#4caf50" opacity="0.4" stroke="#81c784" stroke-width="1" stroke-dasharray="6,3"/>
+
+      <!-- Undocumented -->
+      <polygon points="110,212 170,212 170,408 110,408" fill="#444" opacity="0.25" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="140" y="315" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Inter, system-ui">?</text>
 
       <!-- Park / large green space -->
       <polygon points="192,212 388,212 388,408 192,408" fill="#1b5e20" opacity="0.6" stroke="#2e7d32" stroke-width="1.5"/>
-      <text x="290" y="305" fill="#4caf50" font-size="11" font-weight="600" text-anchor="middle" font-family="Inter, system-ui" opacity="0.6">Victoria Park</text>
-      <text x="290" y="320" fill="#4caf50" font-size="9" text-anchor="middle" font-family="Inter, system-ui" opacity="0.4">Score: 87</text>
+      <text x="290" y="300" fill="#4caf50" font-size="11" font-weight="600" text-anchor="middle" font-family="Inter, system-ui" opacity="0.6">Victoria Park</text>
+      <text x="290" y="316" fill="#4caf50" font-size="9" text-anchor="middle" font-family="Inter, system-ui" opacity="0.4">Score: 87 · 23 sightings</text>
 
       <polygon points="412,212 520,212 520,320 412,320" fill="#4caf50" opacity="0.7" stroke="#66bb6a" stroke-width="1"/>
       <polygon points="530,212 608,212 608,320 530,320" fill="#66bb6a" opacity="0.6" stroke="#81c784" stroke-width="1"/>
       <polygon points="412,330 608,330 608,408 412,408" fill="#ffa726" opacity="0.5" stroke="#ffb74d" stroke-width="1.5"/>
       <polygon points="632,212 788,212 788,340 632,340" fill="#2e7d32" opacity="0.75" stroke="#4caf50" stroke-width="1"/>
-      <text x="710" y="280" fill="#a5d6a7" font-size="10" font-weight="600" text-anchor="middle" font-family="Inter, system-ui" opacity="0.5">Harbourside Ph2</text>
+      <text x="710" y="275" fill="#a5d6a7" font-size="10" font-weight="600" text-anchor="middle" font-family="Inter, system-ui" opacity="0.5">Harbourside Ph2</text>
+      <text x="710" y="290" fill="#a5d6a7" font-size="8" text-anchor="middle" font-family="Inter, system-ui" opacity="0.3">14 sightings</text>
       <polygon points="632,350 720,350 720,408 632,408" fill="#66bb6a" opacity="0.6" stroke="#81c784" stroke-width="1"/>
       <polygon points="730,350 788,350 788,408 730,408" fill="#4caf50" opacity="0.7" stroke="#66bb6a" stroke-width="1"/>
-      <polygon points="812,212 900,212 900,310 812,310" fill="#ffa726" opacity="0.6" stroke="#ffb74d" stroke-width="1"/>
+
+      <!-- More undocumented -->
+      <polygon points="812,212 900,212 900,310 812,310" fill="#444" opacity="0.25" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
       <polygon points="910,212 990,212 990,310 910,310" fill="#ffee58" opacity="0.5" stroke="#fdd835" stroke-width="1"/>
       <polygon points="812,320 990,320 990,408 812,408" fill="#ef5350" opacity="0.4" stroke="#ef5350" stroke-width="1.5"/>
 
       <!-- Row 3 — bottom sites -->
       <polygon points="20,432 170,432 170,568 20,568" fill="#4caf50" opacity="0.7" stroke="#66bb6a" stroke-width="1"/>
       <polygon points="192,432 300,432 300,520 192,520" fill="#2e7d32" opacity="0.8" stroke="#4caf50" stroke-width="1"/>
-      <polygon points="310,432 388,432 388,520 310,520" fill="#66bb6a" opacity="0.6" stroke="#81c784" stroke-width="1"/>
+
+      <!-- Undocumented -->
+      <polygon points="310,432 388,432 388,520 310,520" fill="#444" opacity="0.25" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
+
       <polygon points="192,530 388,530 388,568 192,568" fill="#ffee58" opacity="0.45" stroke="#fdd835" stroke-width="1"/>
       <polygon points="412,432 608,432 608,568 412,568" fill="#2e7d32" opacity="0.7" stroke="#4caf50" stroke-width="1"/>
       <polygon points="632,432 788,432 788,568 632,568" fill="#ffa726" opacity="0.5" stroke="#ffb74d" stroke-width="1"/>
@@ -172,7 +216,11 @@
       <!-- Row 4 -->
       <polygon points="20,592 170,592 170,690 20,690" fill="#66bb6a" opacity="0.6" stroke="#81c784" stroke-width="1"/>
       <polygon points="192,592 388,592 388,690 192,690" fill="#2e7d32" opacity="0.7" stroke="#4caf50" stroke-width="1"/>
-      <polygon points="412,592 520,592 520,690 412,690" fill="#ef5350" opacity="0.4" stroke="#ef5350" stroke-width="1"/>
+
+      <!-- Undocumented -->
+      <polygon points="412,592 520,592 520,690 412,690" fill="#444" opacity="0.25" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="466" y="645" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Inter, system-ui">?</text>
+
       <polygon points="530,592 608,592 608,690 530,690" fill="#ffa726" opacity="0.55" stroke="#ffb74d" stroke-width="1"/>
       <polygon points="632,592 788,592 788,690 632,690" fill="#4caf50" opacity="0.7" stroke="#66bb6a" stroke-width="1"/>
       <polygon points="812,592 990,592 990,690 812,690" fill="#2e7d32" opacity="0.8" stroke="#4caf50" stroke-width="1"/>
@@ -183,10 +231,17 @@
     <div class="bng-badge green-b" style="top: 260px; left: 60%;">BNG</div>
     <div class="bng-badge red-b" style="top: 72px; right: 8%;">BNG</div>
 
+    <!-- Flag badges -->
+    <flag class="flag-badge undoc" style="top: 78px; left: 22.5%;">🔍 undocumented</flag>
+    <flag class="flag-badge outdated" style="top: 340px; left: 4%;">🕐 outdated</flag>
+
     <div class="legend-bar">
       <span class="legend-label">Low</span>
       <div class="legend-gradient"></div>
       <span class="legend-label">High</span>
+      <div class="legend-sep"></div>
+      <div class="legend-flag"><span style="display:inline-block;width:12px;height:12px;background:#444;opacity:0.4;border:1px dashed #666;border-radius:2px;"></span> Undocumented</div>
+      <div class="legend-flag"><span style="display:inline-block;width:12px;height:12px;border:1px dashed #ffa726;border-radius:2px;opacity:0.5;"></span> Outdated</div>
     </div>
   </div>
 
@@ -212,35 +267,78 @@
       <div class="score-status">Amber — Watch</div>
     </div>
 
+    <!-- Sightings within this polygon -->
+    <div class="sightings">
+      <div class="sightings-header">
+        <div class="breakdown-title">Sightings (7)</div>
+        <div class="sightings-count">2 AR polygons drawn</div>
+      </div>
+
+      <div class="sighting-card">
+        <div class="sighting-thumb" style="background: linear-gradient(135deg, #2e7d32, #4caf50); display:flex; align-items:center; justify-content:center; font-size:18px;">🌿</div>
+        <div class="sighting-info">
+          <div class="sighting-species">Sedum mix — poor establishment</div>
+          <div class="sighting-meta">Green roof area · 12 Feb 2026 · by volunteer</div>
+          <div class="sighting-type">Photo + manual ID + notes</div>
+        </div>
+      </div>
+
+      <div class="sighting-card">
+        <div class="sighting-thumb" style="background: linear-gradient(135deg, #33691e, #558b2f); display:flex; align-items:center; justify-content:center; font-size:18px;">🌳</div>
+        <div class="sighting-info">
+          <div class="sighting-species">Betula pendula (Silver birch) × 3</div>
+          <div class="sighting-meta">Planting bed A · 12 Feb 2026 · by volunteer</div>
+          <div class="sighting-type">Photo + manual ID</div>
+        </div>
+      </div>
+
+      <div class="sighting-card">
+        <div class="sighting-thumb" style="background: linear-gradient(135deg, #bf360c, #e65100); display:flex; align-items:center; justify-content:center; font-size:18px;">🐞</div>
+        <div class="sighting-info">
+          <div class="sighting-species">Ladybird (Coccinella septempunctata)</div>
+          <div class="sighting-meta">Hedgerow area · 12 Feb 2026 · by volunteer</div>
+          <div class="sighting-type" style="background: rgba(66,165,245,0.15); color: #42a5f5;">Fauna observation</div>
+        </div>
+      </div>
+
+      <div style="font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; padding: 4px 0;">+ 4 more sightings</div>
+    </div>
+
     <div class="breakdown">
       <div class="breakdown-title">Score breakdown</div>
 
       <div class="metric">
-        <div class="metric-label">Vegetation cover</div>
-        <div class="metric-bar-bg"><div class="metric-bar" style="width: 45%; background: #ffa726;"></div></div>
-        <div class="metric-val" style="color: #ffa726;">45</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-label">Habitat structure (VOM)</div>
-        <div class="metric-bar-bg"><div class="metric-bar" style="width: 30%; background: #ef5350;"></div></div>
-        <div class="metric-val" style="color: #ef5350;">30</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-label">Species diversity</div>
+        <div class="metric-label">Species diversity<br><span class="metric-source">community sightings</span></div>
         <div class="metric-bar-bg"><div class="metric-bar" style="width: 25%; background: #ef5350;"></div></div>
         <div class="metric-val" style="color: #ef5350;">25</div>
       </div>
 
       <div class="metric">
-        <div class="metric-label">Condition vs baseline</div>
+        <div class="metric-label">Habitat condition<br><span class="metric-source">photos + classification</span></div>
+        <div class="metric-bar-bg"><div class="metric-bar" style="width: 35%; background: #ffa726;"></div></div>
+        <div class="metric-val" style="color: #ffa726;">35</div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-label">Fauna activity<br><span class="metric-source">community sightings</span></div>
+        <div class="metric-bar-bg"><div class="metric-bar" style="width: 20%; background: #ef5350;"></div></div>
+        <div class="metric-val" style="color: #ef5350;">20</div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-label">Habitat structure<br><span class="metric-source">AR polygons + photos</span></div>
+        <div class="metric-bar-bg"><div class="metric-bar" style="width: 30%; background: #ef5350;"></div></div>
+        <div class="metric-val" style="color: #ef5350;">30</div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-label">Vegetation trend<br><span class="metric-source">satellite NDVI</span></div>
         <div class="metric-bar-bg"><div class="metric-bar" style="width: 52%; background: #ffa726;"></div></div>
         <div class="metric-val" style="color: #ffa726;">52</div>
       </div>
 
       <div class="metric">
-        <div class="metric-label">HMMP compliance</div>
+        <div class="metric-label">HMMP compliance<br><span class="metric-source">plan vs reality</span></div>
         <div class="metric-bar-bg"><div class="metric-bar" style="width: 35%; background: #ffa726;"></div></div>
         <div class="metric-val" style="color: #ffa726;">35</div>
       </div>
@@ -250,27 +348,29 @@
       <div class="breakdown-title">Data sources</div>
       <div class="source-item">
         <div class="source-dot" style="background: #4caf50;"></div>
+        <div class="source-name">Community sightings (7)</div>
+        <div class="source-primary">Primary</div>
+        <div class="source-age">2 weeks ago</div>
+      </div>
+      <div class="source-item">
+        <div class="source-dot" style="background: #66bb6a;"></div>
+        <div class="source-name">AR polygons (2)</div>
+        <div class="source-primary">Primary</div>
+        <div class="source-age">2 weeks ago</div>
+      </div>
+      <div class="source-item">
+        <div class="source-dot" style="background: #78909c;"></div>
         <div class="source-name">Sentinel-2 NDVI</div>
         <div class="source-age">2 days ago</div>
       </div>
       <div class="source-item">
-        <div class="source-dot" style="background: #ffa726;"></div>
-        <div class="source-name">Community photo</div>
-        <div class="source-age">3 weeks ago</div>
-      </div>
-      <div class="source-item">
         <div class="source-dot" style="background: #42a5f5;"></div>
         <div class="source-name">DEFRA VOM</div>
-        <div class="source-age">Current release</div>
+        <div class="source-age">Baseline</div>
       </div>
       <div class="source-item">
         <div class="source-dot" style="background: #ff7043;"></div>
         <div class="source-name">OS Enhanced Land Cover</div>
-        <div class="source-age">Baseline</div>
-      </div>
-      <div class="source-item">
-        <div class="source-dot" style="background: #ab47bc;"></div>
-        <div class="source-name">MasterMap Topography</div>
         <div class="source-age">Baseline</div>
       </div>
     </div>
@@ -287,19 +387,19 @@
       </div>
       <div class="hmmp-item">
         <div class="hmmp-label">Current condition</div>
-        <div class="hmmp-value warn">Poor — NDVI declining</div>
+        <div class="hmmp-value warn">Poor — sedum not establishing</div>
       </div>
       <div class="hmmp-item">
         <div class="hmmp-label">Next milestone</div>
         <div class="hmmp-value">Year 3: Mar 2027</div>
       </div>
       <div class="hmmp-item">
-        <div class="hmmp-label">Satellite trend</div>
-        <div class="hmmp-value warn">-22% NDVI over 3 readings</div>
+        <div class="hmmp-label">Species count</div>
+        <div class="hmmp-value warn">4 species (target: 8+)</div>
       </div>
       <div class="hmmp-item">
-        <div class="hmmp-label">Community check</div>
-        <div class="hmmp-value warn">Requested — awaiting</div>
+        <div class="hmmp-label">Last volunteer visit</div>
+        <div class="hmmp-value ok">12 Feb 2026</div>
       </div>
     </div>
 
