@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BNG Monitoring — Competitive Landscape</title>
+<style>
+  @media print { * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } @page { margin: 10mm; } }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f8f9fa; padding: 40px; display: flex; flex-direction: column; align-items: center; }
+  h1 { font-size: 22px; color: #1a1a2e; margin-bottom: 6px; }
+  .subtitle { font-size: 13px; color: #666; margin-bottom: 30px; }
+  .quadrant-container { position: relative; width: 700px; height: 700px; }
+  .quadrant-bg { position: absolute; width: 100%; height: 100%; }
+  .quadrant-bg .q { position: absolute; width: 50%; height: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(0,0,0,0.08); }
+  .q-tl { top: 0; left: 0; background: #e8f5e9; border-radius: 16px 0 0 0; }
+  .q-tr { top: 0; right: 0; background: #c8e6c9; border-radius: 0 16px 0 0; }
+  .q-bl { bottom: 0; left: 0; background: #fff3e0; border-radius: 0 0 0 16px; }
+  .q-br { bottom: 0; right: 0; background: #e8f5e9; border-radius: 0 0 16px 0; }
+  .axis-x, .axis-y { position: absolute; background: #333; }
+  .axis-x { width: 100%; height: 2px; top: 50%; left: 0; }
+  .axis-y { height: 100%; width: 2px; left: 50%; top: 0; }
+  .axis-label { position: absolute; font-size: 12px; font-weight: 600; color: #333; text-transform: uppercase; letter-spacing: 1px; }
+  .axis-label.top { top: -28px; left: 50%; transform: translateX(-50%); }
+  .axis-label.bottom { bottom: -28px; left: 50%; transform: translateX(-50%); }
+  .axis-label.left { left: -20px; top: 50%; transform: translateY(-50%) rotate(-90deg); white-space: nowrap; }
+  .axis-label.right { right: -20px; top: 50%; transform: translateY(-50%) rotate(90deg); white-space: nowrap; }
+  .company { position: absolute; transform: translate(-50%, -50%); text-align: center; z-index: 2; }
+  .company .dot { width: 14px; height: 14px; border-radius: 50%; margin: 0 auto 5px; border: 2px solid rgba(255,255,255,0.8); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  .company.hero .dot { width: 22px; height: 22px; box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.25), 0 2px 12px rgba(0,0,0,0.2); }
+  .company .name { font-size: 11px; font-weight: 700; color: #1a1a2e; white-space: nowrap; }
+  .company .detail { font-size: 9px; color: #666; white-space: nowrap; max-width: 120px; }
+  .company.hero .name { font-size: 13px; color: #2e7d32; }
+  .legend { margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #555; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.1); }
+  .quadrant-label { position: absolute; font-size: 10px; font-weight: 700; color: rgba(0,0,0,0.12); text-transform: uppercase; letter-spacing: 2px; }
+  .ql-tl { top: 16px; left: 20px; }
+  .ql-tr { top: 16px; right: 20px; text-align: right; }
+  .ql-bl { bottom: 16px; left: 20px; }
+  .ql-br { bottom: 16px; right: 20px; text-align: right; }
+  .callout { position: absolute; background: #2e7d32; color: white; font-size: 10px; font-weight: 600; padding: 6px 12px; border-radius: 20px; white-space: nowrap; z-index: 3; box-shadow: 0 2px 8px rgba(46,125,50,0.3); }
+  .callout::after { content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid #2e7d32; }
+</style>
+</head>
+<body>
+
+<h1>BNG Monitoring — Competitive Landscape</h1>
+<p class="subtitle">Where Urban Biome sits vs. existing solutions</p>
+
+<div class="quadrant-container">
+  <div class="quadrant-bg">
+    <div class="q q-tl"></div>
+    <div class="q q-tr"></div>
+    <div class="q q-bl"></div>
+    <div class="q q-br"></div>
+  </div>
+
+  <div class="axis-x"></div>
+  <div class="axis-y"></div>
+
+  <span class="axis-label top">Environmental intelligence</span>
+  <span class="axis-label bottom">Administrative / manual</span>
+  <span class="axis-label left">Professional only</span>
+  <span class="axis-label right">Scalable / automated</span>
+
+  <span class="quadrant-label ql-tl">Smart but<br>unscalable</span>
+  <span class="quadrant-label ql-tr">The future</span>
+  <span class="quadrant-label ql-bl">Legacy</span>
+  <span class="quadrant-label ql-br">Efficient but<br>surface-level</span>
+
+  <!-- Callout for Urban Biome -->
+  <div class="callout" style="top: 52px; left: 490px;">Only platform with citizen science + satellite + OS</div>
+
+  <!-- Urban Biome — top-right, high on both axes -->
+  <div class="company hero" style="top: 20%; left: 78%;">
+    <div class="dot" style="background: #2e7d32;"></div>
+    <div class="name">Urban Biome</div>
+    <div class="detail">BNG Monitor · £3K/yr</div>
+  </div>
+
+  <!-- Verna — bottom-right, scalable but administrative -->
+  <div class="company" style="top: 68%; left: 80%;">
+    <div class="dot" style="background: #f57c00;"></div>
+    <div class="name">Verna</div>
+    <div class="detail">Admin workflow · £10K/yr</div>
+  </div>
+
+  <!-- Linckia — top-left, smart but pro-only -->
+  <div class="company" style="top: 35%; left: 28%;">
+    <div class="dot" style="background: #7b1fa2;"></div>
+    <div class="name">Linckia</div>
+    <div class="detail">ESRI-locked · £1.2K+/user</div>
+  </div>
+
+  <!-- BNGAI — mid-right, satellite but no ground truth -->
+  <div class="company" style="top: 32%; left: 65%;">
+    <div class="dot" style="background: #1565c0;"></div>
+    <div class="name">BNGAI</div>
+    <div class="detail">Satellite only · US-backed</div>
+  </div>
+
+  <!-- Gentian — mid area, satellite mapping -->
+  <div class="company" style="top: 38%; left: 52%;">
+    <div class="dot" style="background: #00838f;"></div>
+    <div class="name">Gentian</div>
+    <div class="detail">Satellite mapping · £30/ha</div>
+  </div>
+
+  <!-- Coreo — left-center, field survey tool -->
+  <div class="company" style="top: 42%; left: 22%;">
+    <div class="dot" style="background: #ad1457;"></div>
+    <div class="name">Coreo</div>
+    <div class="detail">Field survey app</div>
+  </div>
+
+  <!-- NatureMetrics — top-left, eDNA, expensive -->
+  <div class="company" style="top: 22%; left: 18%;">
+    <div class="dot" style="background: #4527a0;"></div>
+    <div class="name">NatureMetrics</div>
+    <div class="detail">eDNA sampling · $25M funded</div>
+  </div>
+
+  <!-- Traditional consultancies — bottom-left -->
+  <div class="company" style="top: 75%; left: 20%;">
+    <div class="dot" style="background: #9e9e9e;"></div>
+    <div class="name">GIS Consultancies</div>
+    <div class="detail">Manual surveys · £300–800/day</div>
+  </div>
+
+  <!-- Joe's Blooms — bottom-center -->
+  <div class="company" style="top: 72%; left: 55%;">
+    <div class="dot" style="background: #8d6e63;"></div>
+    <div class="name">Joe's Blooms</div>
+    <div class="detail">Small developer tool</div>
+  </div>
+
+  <!-- Environment Bank — bottom-right area -->
+  <div class="company" style="top: 80%; left: 70%;">
+    <div class="dot" style="background: #546e7a;"></div>
+    <div class="name">Environment Bank</div>
+    <div class="detail">Habitat bank operator</div>
+  </div>
+
+  <!-- iNaturalist — mid-left -->
+  <div class="company" style="top: 30%; left: 40%;">
+    <div class="dot" style="background: #689f38;"></div>
+    <div class="name">iNaturalist</div>
+    <div class="detail">Species ID only · free</div>
+  </div>
+
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background: #2e7d32;"></div> Urban Biome (BNG Monitor)</div>
+  <div class="legend-item"><div class="legend-dot" style="background: #f57c00;"></div> Verna (Geovation Cohort 19)</div>
+  <div class="legend-item"><div class="legend-dot" style="background: #7b1fa2;"></div> Linckia (Geovation Cohort 21)</div>
+  <div class="legend-item"><div class="legend-dot" style="background: #1565c0;"></div> BNGAI</div>
+  <div class="legend-item"><div class="legend-dot" style="background: #9e9e9e;"></div> Traditional / manual</div>
+</div>
+
+</body>
+</html>

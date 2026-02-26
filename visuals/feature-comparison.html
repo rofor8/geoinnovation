@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BNG Monitor — Feature Comparison</title>
+<style>
+  @media print { * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } @page { margin: 10mm; } }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f8f9fa; padding: 40px; display: flex; flex-direction: column; align-items: center; }
+  h1 { font-size: 22px; color: #1a1a2e; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: #666; margin-bottom: 32px; }
+  .table-wrap { background: white; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); overflow: hidden; max-width: 900px; width: 100%; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 14px 16px; text-align: center; font-size: 13px; }
+  thead th { background: #1a1a2e; color: white; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  thead th:first-child { text-align: left; }
+  thead th.hero { background: #2e7d32; }
+  tbody td:first-child { text-align: left; font-weight: 600; color: #333; font-size: 13px; }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:hover { background: #fafffe; }
+  tbody tr:last-child { border-bottom: none; }
+  .check { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 15px; }
+  .yes { background: #e8f5e9; color: #2e7d32; }
+  .no { background: #fce4ec; color: #c62828; }
+  .partial { background: #fff3e0; color: #e65100; }
+  .hero-col { background: #f1f8e9 !important; }
+  tbody tr:hover .hero-col { background: #e8f5e9 !important; }
+  .price-row td { font-size: 12px; font-weight: 700; color: #555; padding-top: 18px; padding-bottom: 18px; border-top: 2px solid #eee; }
+  .price-row .hero-col { color: #2e7d32; font-size: 14px; }
+  .section-row td { background: #f8f9fa; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #999; padding: 8px 16px; }
+  .footnote { margin-top: 20px; font-size: 11px; color: #888; max-width: 900px; text-align: center; line-height: 1.6; }
+  .tag { display: inline-block; background: #2e7d32; color: white; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 6px; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<h1>How BNG Monitor compares</h1>
+<p class="subtitle">Feature-by-feature comparison against the BNG monitoring market</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+  <th style="width: 200px;">Capability</th>
+  <th class="hero" style="width: 120px;">Urban Biome<br><span style="font-weight: 400; font-size: 10px; opacity: 0.8;">BNG Monitor</span></th>
+  <th style="width: 100px;">Verna<br><span style="font-weight: 400; font-size: 10px; opacity: 0.7;">Cohort 19</span></th>
+  <th style="width: 100px;">Linckia<br><span style="font-weight: 400; font-size: 10px; opacity: 0.7;">Cohort 21</span></th>
+  <th style="width: 100px;">BNGAI</th>
+  <th style="width: 100px;">Gentian</th>
+  <th style="width: 100px;">Traditional<br><span style="font-weight: 400; font-size: 10px; opacity: 0.7;">Consultancy</span></th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="section-row"><td colspan="7">Monitoring capabilities</td></tr>
+
+<tr>
+  <td>Satellite monitoring</td>
+  <td class="hero-col"><span class="check yes">&#10003;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+</tr>
+<tr>
+  <td>Community / citizen science <span class="tag">unique</span></td>
+  <td class="hero-col"><span class="check yes">&#10003;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+</tr>
+<tr>
+  <td>AI condition scoring</td>
+  <td class="hero-col"><span class="check yes">&#10003;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check partial">~</span></td>
+  <td><span class="check partial">~</span></td>
+  <td><span class="check no">&#10007;</span></td>
+</tr>
+<tr>
+  <td>OS data integration</td>
+  <td class="hero-col"><span class="check yes">&#10003;</span></td>
+  <td><span class="check partial">~</span></td>
+  <td><span class="check partial">~</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check partial">~</span></td>
+</tr>
+<tr>
+  <td>30-year compliance tracking</td>
+  <td class="hero-col"><span class="check yes">&#10003;</span></td>
+  <td><span class="check partial">~</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+</tr>
+
+<tr class="section-row"><td colspan="7">Scalability & access</td></tr>
+
+<tr>
+  <td>Works without ecologist</td>
+  <td class="hero-col"><span class="check yes">&#10003;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+</tr>
+<tr>
+  <td>Ground-truth verification</td>
+  <td class="hero-col"><span class="check yes">&#10003;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+</tr>
+<tr>
+  <td>Scales to 1000s of sites</td>
+  <td class="hero-col"><span class="check yes">&#10003;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check partial">~</span></td>
+  <td><span class="check no">&#10007;</span></td>
+</tr>
+<tr>
+  <td>No expensive licence needed</td>
+  <td class="hero-col"><span class="check yes">&#10003;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check no">&#10007;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+  <td><span class="check yes">&#10003;</span></td>
+</tr>
+
+<tr class="section-row"><td colspan="7">Data layers fused</td></tr>
+
+<tr>
+  <td>Satellite + AI + OS + Community</td>
+  <td class="hero-col"><span class="check yes">&#10003;</span> <span style="font-size:10px; color:#2e7d32; font-weight:600;">All 4</span></td>
+  <td><span style="font-size:11px; color:#999;">0 of 4</span></td>
+  <td><span style="font-size:11px; color:#999;">1 of 4</span></td>
+  <td><span style="font-size:11px; color:#999;">2 of 4</span></td>
+  <td><span style="font-size:11px; color:#999;">1 of 4</span></td>
+  <td><span style="font-size:11px; color:#999;">1 of 4</span></td>
+</tr>
+
+<tr class="price-row">
+  <td>Annual cost per council</td>
+  <td class="hero-col">£3,000/yr</td>
+  <td>£10,000/yr</td>
+  <td>£1,200+/user</td>
+  <td>Unknown</td>
+  <td>£30/ha</td>
+  <td>£300–800/day</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="footnote">
+  <span class="check partial" style="font-size: 11px; width: 18px; height: 18px; display: inline-flex;">~</span> = partial or admin-only &nbsp;&nbsp;|&nbsp;&nbsp;
+  Parliamentary POST briefing (2025) explicitly calls for citizen science in BNG monitoring — Urban Biome is the only platform delivering this.
+</p>
+
+</body>
+</html>

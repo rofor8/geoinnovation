@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BNG Monitor — Visual Assets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #0a0a0a; color: #fff; min-height: 100vh; padding: 60px 40px; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .badge { display: inline-block; background: rgba(76,175,80,0.15); border: 1px solid rgba(76,175,80,0.3); color: #4caf50; font-size: 11px; font-weight: 600; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.5px; }
+  h1 { font-size: 40px; font-weight: 900; letter-spacing: -1.5px; margin-bottom: 8px; }
+  h1 span { background: linear-gradient(135deg, #4caf50, #81c784); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .subtitle { font-size: 16px; color: rgba(255,255,255,0.4); margin-bottom: 48px; line-height: 1.6; max-width: 550px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; text-decoration: none; color: inherit; transition: all 0.2s; position: relative; overflow: hidden; }
+  .card:hover { background: rgba(76,175,80,0.06); border-color: rgba(76,175,80,0.2); transform: translateY(-2px); }
+  .card-icon { font-size: 32px; margin-bottom: 16px; }
+  .card-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .card-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+  .card-arrow { position: absolute; top: 32px; right: 32px; font-size: 18px; color: rgba(255,255,255,0.15); transition: all 0.2s; }
+  .card:hover .card-arrow { color: #4caf50; transform: translateX(4px); }
+  .card.featured { grid-column: 1 / -1; border-color: rgba(76,175,80,0.2); background: rgba(76,175,80,0.04); }
+  .card.featured .card-title { font-size: 22px; }
+  .tag { display: inline-block; background: #4caf50; color: #0a0a0a; font-size: 9px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 8px; vertical-align: middle; }
+  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+  .footer-text { font-size: 12px; color: rgba(255,255,255,0.2); }
+  .footer-company { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="badge">Geovation Spring 2026</div>
+  <h1>BNG <span>Monitor</span></h1>
+  <p class="subtitle">Visual assets for the Urban Biome Geovation application. Click any card to view.</p>
+
+  <div class="grid">
+
+    <a href="pitch-deck.html" class="card featured">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Pitch Deck <span class="tag">10 slides</span></div>
+      <div class="card-desc">Full investor pitch. Problem, solution, competition, traction, market, business model, team, and ask. Scrollable presentation — print to PDF for a static version.</div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="competitive-quadrant.html" class="card">
+      <div class="card-icon">🎯</div>
+      <div class="card-title">Competitive Quadrant</div>
+      <div class="card-desc">2x2 positioning map. Environmental intelligence vs administrative, professional vs scalable. Urban Biome alone in the top-right.</div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="feature-comparison.html" class="card">
+      <div class="card-icon">✅</div>
+      <div class="card-title">Feature Comparison</div>
+      <div class="card-desc">Checkmark grid across 6 competitors and 10 capabilities. Only BNG Monitor has all green. Citizen science row: only us.</div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="three-layers.html" class="card">
+      <div class="card-icon">🔀</div>
+      <div class="card-title">Three Data Layers</div>
+      <div class="card-desc">Product architecture diagram. Satellite + community + OS baselines flow into the AI fusion engine, outputting council compliance tools.</div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="market-gap.html" class="card">
+      <div class="card-icon">💡</div>
+      <div class="card-title">The Gap No One Fills</div>
+      <div class="card-desc">Market landscape showing the monitoring spectrum from field survey to remote sensing. Every competitor's blind spot. CCC quote and key stats.</div>
+      <div class="card-arrow">→</div>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">All visuals print-ready — use browser Print → Save as PDF with backgrounds enabled.</div>
+    <div class="footer-company">Urban Biome Ltd</div>
+  </div>
+
+</div>
+</body>
+</html>

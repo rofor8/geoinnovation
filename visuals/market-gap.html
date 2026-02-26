@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BNG Monitoring — The Gap No One Fills</title>
+<style>
+  @media print { * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } @page { margin: 10mm; } }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f8f9fa; padding: 40px; display: flex; flex-direction: column; align-items: center; }
+  h1 { font-size: 22px; color: #1a1a2e; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: #666; margin-bottom: 36px; max-width: 600px; text-align: center; line-height: 1.5; }
+
+  .spectrum { max-width: 860px; width: 100%; }
+
+  /* The scale bar */
+  .scale { position: relative; height: 80px; background: linear-gradient(90deg, #1565c0, #4caf50, #ff9800); border-radius: 40px; margin-bottom: 60px; display: flex; align-items: center; overflow: visible; }
+  .scale-label { position: absolute; bottom: -30px; font-size: 11px; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+  .scale-label.left { left: 20px; color: #1565c0; }
+  .scale-label.center { left: 50%; transform: translateX(-50%); color: #4caf50; }
+  .scale-label.right { right: 20px; color: #ff9800; }
+
+  /* Company pills on the scale */
+  .pill { position: absolute; top: -12px; transform: translateX(-50%); background: white; border-radius: 10px; padding: 6px 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.15); font-size: 11px; font-weight: 600; white-space: nowrap; z-index: 2; border: 2px solid #ddd; }
+  .pill::after { content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 2px; height: 8px; background: #999; }
+  .pill.hero { background: #2e7d32; color: white; border-color: #2e7d32; font-size: 13px; padding: 8px 16px; top: -16px; box-shadow: 0 4px 16px rgba(46,125,50,0.3); z-index: 3; }
+  .pill.hero::after { background: #2e7d32; height: 12px; bottom: -12px; }
+
+  /* Competitor cards */
+  .competitors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+  .comp-card { background: white; border-radius: 12px; padding: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+  .comp-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .comp-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .comp-name { font-size: 13px; font-weight: 700; color: #333; }
+  .comp-type { font-size: 10px; color: #999; margin-left: auto; }
+  .comp-does { font-size: 11px; color: #555; margin-bottom: 8px; line-height: 1.5; }
+  .comp-missing { font-size: 11px; color: #c62828; line-height: 1.5; }
+  .comp-missing strong { font-weight: 600; }
+
+  /* The gap highlight */
+  .gap-section { background: white; border-radius: 16px; padding: 28px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); max-width: 860px; width: 100%; margin-top: 20px; }
+  .gap-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .gap-title-bar { width: 4px; height: 20px; background: #2e7d32; border-radius: 2px; }
+  .gap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .gap-item { }
+  .gap-item-title { font-size: 12px; font-weight: 700; color: #2e7d32; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .gap-item-text { font-size: 13px; color: #555; line-height: 1.6; }
+  .gap-quote { grid-column: 1 / -1; background: #f1f8e9; border-radius: 10px; padding: 16px 20px; margin-top: 4px; }
+  .gap-quote-text { font-size: 13px; color: #333; font-style: italic; line-height: 1.6; }
+  .gap-quote-source { font-size: 11px; color: #888; margin-top: 6px; }
+
+  /* Bottom stats */
+  .stats-bar { display: flex; gap: 0; max-width: 860px; width: 100%; margin-top: 24px; border-radius: 12px; overflow: hidden; }
+  .stat { flex: 1; padding: 18px 20px; text-align: center; }
+  .stat:nth-child(1) { background: #e8f5e9; }
+  .stat:nth-child(2) { background: #c8e6c9; }
+  .stat:nth-child(3) { background: #a5d6a7; }
+  .stat:nth-child(4) { background: #81c784; color: white; }
+  .stat-num { font-size: 22px; font-weight: 800; color: #1b5e20; }
+  .stat:nth-child(4) .stat-num { color: white; }
+  .stat-label { font-size: 10px; color: #333; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; font-weight: 600; }
+  .stat:nth-child(4) .stat-label { color: rgba(255,255,255,0.85); }
+</style>
+</head>
+<body>
+
+<h1>The gap no one fills</h1>
+<p class="subtitle">BNG requires 30-year habitat monitoring. Existing tools cover paperwork OR satellite — not the full picture. No one provides community ground-truth.</p>
+
+<!-- Scale bar showing the monitoring spectrum -->
+<div class="spectrum">
+  <div class="scale">
+    <div class="pill" style="left: 8%;">Consultancies</div>
+    <div class="pill" style="left: 22%;">Coreo</div>
+    <div class="pill" style="left: 35%;">Linckia</div>
+    <div class="pill" style="left: 50%;">iNaturalist</div>
+    <div class="pill hero" style="left: 65%;">BNG Monitor</div>
+    <div class="pill" style="left: 78%;">BNGAI</div>
+    <div class="pill" style="left: 90%;">Gentian</div>
+    <div class="scale-label left">Human field survey</div>
+    <div class="scale-label center">Hybrid intelligence</div>
+    <div class="scale-label right">Remote sensing</div>
+  </div>
+</div>
+
+<!-- Competitor cards showing what each misses -->
+<div class="competitors" style="max-width: 860px; width: 100%;">
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-dot" style="background: #f57c00;"></div>
+      <div class="comp-name">Verna</div>
+      <div class="comp-type">Cohort 19</div>
+    </div>
+    <div class="comp-does">BNG case management. Tracks planning conditions, deadlines, and compliance paperwork for 100+ LPAs.</div>
+    <div class="comp-missing"><strong>Missing:</strong> No satellite data. No habitat condition monitoring. No environmental intelligence whatsoever. Processes paperwork, not ecology.</div>
+  </div>
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-dot" style="background: #7b1fa2;"></div>
+      <div class="comp-name">Linckia</div>
+      <div class="comp-type">Cohort 21</div>
+    </div>
+    <div class="comp-does">Field survey tool for professional ecologists. Built on ESRI/ArcGIS. Digitises existing manual workflows.</div>
+    <div class="comp-missing"><strong>Missing:</strong> No satellite layer. No community data. Requires £1,200+/user ESRI licence. Cannot scale beyond professional ecologists.</div>
+  </div>
+  <div class="comp-card">
+    <div class="comp-header">
+      <div class="comp-dot" style="background: #1565c0;"></div>
+      <div class="comp-name">BNGAI</div>
+      <div class="comp-type">US-backed</div>
+    </div>
+    <div class="comp-does">Satellite-based habitat analysis using AI. Automated mapping from remote sensing data.</div>
+    <div class="comp-missing"><strong>Missing:</strong> No ground-truth verification. No community layer. Satellite alone cannot assess habitat condition at the detail BNG requires.</div>
+  </div>
+</div>
+
+<!-- The gap Urban Biome fills -->
+<div class="gap-section">
+  <div class="gap-title"><div class="gap-title-bar"></div>What BNG Monitor uniquely provides</div>
+  <div class="gap-grid">
+    <div class="gap-item">
+      <div class="gap-item-title">Community ground-truth</div>
+      <div class="gap-item-text">Trained volunteers submit structured habitat condition data — stress, dieback, species health. The evidence layer no satellite or desk assessment can replicate.</div>
+    </div>
+    <div class="gap-item">
+      <div class="gap-item-title">Three-layer fusion</div>
+      <div class="gap-item-text">Satellite detects change, community verifies on the ground, OS provides the authoritative spatial framework. AI reconciles all three into actionable scores.</div>
+    </div>
+    <div class="gap-item">
+      <div class="gap-item-title">Council-affordable</div>
+      <div class="gap-item-text">£250/month vs. £10,000/yr (Verna) or £300–800/day (consultants). Built on serverless infrastructure costing &lt;£40/month to run nationally.</div>
+    </div>
+    <div class="gap-item">
+      <div class="gap-item-title">30-year capable</div>
+      <div class="gap-item-text">BNG obligations last decades. Automated satellite monitoring + growing community data network means the system improves with every year of operation.</div>
+    </div>
+    <div class="gap-quote">
+      <div class="gap-quote-text">"The Committee cannot evaluate progress against urban greening targets because there is no systematic monitoring of urban habitats in England."</div>
+      <div class="gap-quote-source">— Climate Change Committee report to Parliament, 2025</div>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom stats bar -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">330+</div>
+    <div class="stat-label">LPAs needing BNG tools</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0.66</div>
+    <div class="stat-label">Ecologists per council</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">30yr</div>
+    <div class="stat-label">Monitoring per site</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Competitors with citizen science</div>
+  </div>
+</div>
+
+</body>
+</html>

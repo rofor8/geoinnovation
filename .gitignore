@@ -1,0 +1,12 @@
+# Screenshots and large binaries
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.gif
+
+# macOS
+.DS_Store
+
+# Claude memory (private)
+.claude/
